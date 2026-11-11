@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Большое путешествие в мир знаний</title>
+<style>
+:root{--ink:#20384a;--muted:#718293;--blue:#397da5;--blue2:#e9f3f8;--green:#39856d;--green2:#e9f4ef;--gold:#e6b95e;--paper:#fff;--bg:#f3f6f8;--line:#e4ebef;--shadow:0 12px 34px rgba(33,60,78,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer}.wrap{max-width:1080px;margin:auto;padding:28px 20px 60px}
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:38px 42px;color:white;background:linear-gradient(120deg,#173b54,#286b82 65%,#45918a);box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;width:310px;height:310px;border-radius:50%;right:-60px;top:-125px;background:rgba(255,255,255,.09);box-shadow:-110px 230px 0 -65px rgba(255,255,255,.1)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#b9d9e3}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.08;max-width:620px;margin:12px 0}.hero p{max-width:620px;color:#e1edf1;margin:0;font-size:17px}.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:7px 12px;border-radius:99px;font-size:13px}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:22px;margin-top:24px;align-items:start}.sidebar,.content{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}.sidebar{padding:18px;position:sticky;top:18px}.side-title{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;margin:4px 8px 12px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:#526779;text-align:left;padding:12px;border-radius:13px;display:flex;align-items:center;gap:11px;font-weight:700}.nav button:hover{background:#f3f7f9}.nav button.active{background:var(--blue2);color:#245d7e}.nav .num{width:29px;height:29px;border-radius:9px;background:#edf1f4;display:grid;place-items:center;font-size:13px}.nav button.active .num{background:#d2e6f0}.progressbox{margin:22px 7px 5px;padding-top:16px;border-top:1px solid var(--line)}.progressline{height:8px;background:#edf1f3;border-radius:99px;overflow:hidden;margin:9px 0}.progressline span{display:block;height:100%;width:0;background:var(--green);transition:width .3s}.small{font-size:13px;color:var(--muted)}.content{padding:30px;min-height:650px}.section{display:none}.section.active{display:block;animation:fade .25s ease}@keyframes fade{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}
+.kicker{color:var(--green);font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:800}.section h2{font-size:clamp(26px,4vw,35px);line-height:1.2;margin:8px 0 10px}.lead{color:var(--muted);margin:0 0 22px}.banner{border-radius:18px;padding:22px;background:linear-gradient(120deg,#eaf3f7,#edf6f1);margin:20px 0}.banner strong{display:block;font-size:19px;margin-bottom:5px}.story{background:#f7f9fa;border:1px solid var(--line);border-radius:17px;padding:22px;font-size:17px;line-height:1.8}.story h3{margin:0 0 10px;font-size:21px}.story p{margin:0 0 12px}.story p:last-child{margin:0}.task{border:1px solid var(--line);border-radius:17px;padding:20px;margin:18px 0}.task h3{margin:0 0 12px;font-size:17px}.choices{display:grid;gap:9px}.choice{border:1px solid #dce5ea;background:white;border-radius:12px;padding:11px 14px;text-align:left;color:var(--ink);transition:.15s}.choice:hover{border-color:#8bb7ca;background:#f7fbfd}.choice.selected{border-color:var(--blue);background:var(--blue2)}.choice.correct{border-color:var(--green);background:var(--green2)}.choice.wrong{border-color:#d48a78;background:#fff2ee}.feedback{margin-top:12px;font-weight:700;font-size:14px;min-height:22px}.feedback.good{color:var(--green)}.feedback.bad{color:#b45f4c}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.concept{padding:18px;border-radius:15px;background:#f4f8fa}.concept b{display:block;font-size:25px;color:var(--blue)}.concept.green b{color:var(--green)}.concept p{margin:5px 0 0}.wordbank{display:flex;flex-wrap:wrap;gap:8px}.word{background:#f0f4f6;padding:8px 13px;border-radius:10px;font-weight:650}.reveal{border:0;background:#edf3f6;color:#315e76;border-radius:11px;padding:10px 14px;font-weight:700;margin-top:12px}.answer{display:none;background:#f0f6f2;border:1px solid #d9e9df;border-radius:12px;padding:14px;margin-top:12px}.answer.show{display:block}.mathgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mathitem{background:#f5f8fa;border-radius:13px;padding:15px;text-align:center;font-size:22px;font-weight:800}.inputrow{display:flex;gap:9px;flex-wrap:wrap}.inputrow input{min-width:0;flex:1;border:1px solid #d8e2e8;border-radius:11px;padding:11px 13px;font:inherit}.primary{border:0;background:var(--blue);color:white;border-radius:12px;padding:12px 18px;font-weight:750}.primary:hover{background:#2d698e}.secondary{border:1px solid var(--line);background:white;color:var(--ink);border-radius:12px;padding:11px 16px;font-weight:700}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}.actions button:disabled{opacity:.35;cursor:not-allowed}.stars{font-size:20px;letter-spacing:5px;color:var(--gold)}.finish{display:none;text-align:center;background:var(--green2);padding:24px;border-radius:18px;margin-top:18px}.finish.show{display:block}.finish h3{font-size:24px;margin:5px}.tip{font-size:13px;color:var(--muted);margin-top:18px}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+@media(max-width:760px){.wrap{padding:14px 12px 35px}.hero{padding:28px 23px;border-radius:22px}.layout{grid-template-columns:1fr;gap:13px}.sidebar{position:static;padding:12px}.side-title{margin-bottom:8px}.nav{display:flex;overflow-x:auto;padding-bottom:3px}.nav button{flex:0 0 auto;padding:8px 10px;font-size:13px}.nav .num{width:25px;height:25px}.progressbox{margin:10px 7px 0;padding-top:10px}.content{padding:22px 17px;min-height:unset}.grid2{grid-template-columns:1fr}.story{padding:17px;font-size:16px}.actions{position:sticky;bottom:0;background:white;padding:14px 0 0}.mathgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Интерактивное занятие · 1 класс</div>
+  <h1>Большое путешествие<br>в мир знаний</h1>
+  <p>Читай, исследуй, решай задачи и открывай секреты природы. Выполняй задания и собирай звёзды за каждый пройденный раздел.</p>
+  <div class="hero-meta"><span class="pill">60–70 минут</span><span class="pill">5 учебных станций</span><span class="pill">Читай и нажимай</span></div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+  <div class="side-title">Твой маршрут</div>
+  <nav class="nav" aria-label="Разделы занятия">
+    <button class="active" data-go="0"><span class="num">01</span> Чтение</button>
+    <button data-go="1"><span class="num">02</span> Русский язык</button>
+    <button data-go="2"><span class="num">03</span> Слоги</button>
+    <button data-go="3"><span class="num">04</span> Математика</button>
+    <button data-go="4"><span class="num">05</span> Природа</button>
+  </nav>
+  <div class="progressbox">
+    <strong>Твой прогресс</strong>
+    <div class="progressline"><span id="progress"></span></div>
+    <div class="small" id="progressText">0 из 5 разделов завершено</div>
+    <div class="stars" id="stars">☆☆☆☆☆</div>
+  </div>
+</aside>
+<main class="content">
+<section class="section active" id="s0">
+  <div class="kicker">Станция 01 · 10 минут</div><h2>Загадка лесного утра</h2><p class="lead">Прочитай рассказ внимательно. Затем ответь на вопросы по тексту.</p>
+  <div class="banner"><strong>Задача исследователя</strong>Не просто прочитать, а понять, что произошло, и суметь пересказать своими словами.</div>
+  <article class="story"><h3>Утро в лесу</h3>
+  <p>Рано утром маленький ёжик вышел из своей норки. Ночью прошёл сильный дождь. На траве блестели капельки воды, а на листьях деревьев висели прозрачные бусинки росы.</p>
+  <p>Ёжик отправился искать завтрак. Под старым дубом он нашёл несколько грибов, а возле ручья заметил маленькую лягушку.</p>
+  <p>Вдруг из-за туч выглянуло солнце. Лес сразу стал светлее и теплее. Над ручьём появилась красивая радуга.</p>
+  <p>Ёжик остановился и подумал: «Как много интересного происходит в природе!»</p></article>
+  <div class="task"><h3>1. Куда утром отправился ёжик?</h3><div class="choices" data-question="reading"><button class="choice" data-value="a">На прогулку в город</button><button class="choice" data-value="b">В лес искать завтрак</button><button class="choice" data-value="c">На берег моря</button></div><div class="feedback" id="f-reading"></div></div>
+  <div class="task"><h3>2. Ответь устно полным предложением</h3><p>Что появилось над ручьём? Почему лес стал светлее и теплее?</p><button class="reveal" data-reveal="read-model">Показать пример ответа</button><div class="answer" id="read-model">Над ручьём появилась радуга. Лес стал светлее и теплее, потому что из-за туч выглянуло солнце.</div></div>
+  <div class="task"><h3>3. Придумай другое название рассказа</h3><p class="small">Например: «Ёжик после дождя». Придумай свой вариант и объясни, почему он подходит.</p></div>
+  <div class="actions"><span></span><button class="primary next" data-next="1">К русскому языку →</button></div>
+</section>
+<section class="section" id="s1">
+  <div class="kicker">Станция 02 · 15 минут</div><h2>Знакомимся с существительным</h2><p class="lead">Узнай, что обозначают существительные и на какие вопросы они отвечают.</p>
+  <div class="banner"><strong>Что такое имя существительное?</strong>Это часть речи, которая называет человека, животное, предмет или явление. Чтобы найти существительное, задай вопрос: КТО? или ЧТО?</div>
+  <div class="grid2"><div class="concept"><b>КТО?</b><p>Мама, кот, мальчик, птица.</p><span class="small">Люди и животные</span></div><div class="concept green"><b>ЧТО?</b><p>Стол, дерево, дождь, солнце.</p><span class="small">Предметы и явления</span></div></div>
+  <div class="task"><h3>Одушевлённые существительные</h3><p>Отвечают на вопрос <b>КТО?</b> Например: кот, медведь, мальчик.</p><div class="wordbank"><span class="word">собака</span><span class="word">девочка</span><span class="word">воробей</span></div></div>
+  <div class="task"><h3>Неодушевлённые существительные</h3><p>Отвечают на вопрос <b>ЧТО?</b> Например: яблоко, дерево, мяч.</p><div class="wordbank"><span class="word">карандаш</span><span class="word">облако</span><span class="word">снег</span></div></div>
+  <div class="task"><h3>Проверь себя: слово «бабочка» — это...</h3><div class="choices" data-question="noun"><button class="choice" data-value="a">Одушевлённое существительное</button><button class="choice" data-value="b">Неодушевлённое существительное</button></div><div class="feedback" id="f-noun"></div></div>
+  <div class="task"><h3>Дополнительное задание</h3><p>Распредели слова: <b>карандаш, собака, облако, девочка, снег, воробей.</b></p><button class="reveal" data-reveal="noun-model">Показать правильную классификацию</button><div class="answer" id="noun-model"><b>КТО?</b> Собака, девочка, воробей.<br><b>ЧТО?</b> Карандаш, облако, снег.</div><p class="small">Попроси ребёнка придумать ещё по три примера к каждой группе.</p></div>
+  <div class="actions"><button class="secondary prev" data-prev="0">← Назад</button><button class="primary next" data-next="2">К слогам →</button></div>
+</section>
+<section class="section" id="s2">
+  <div class="kicker">Станция 03 · 10 минут</div><h2>Слоговое приключение</h2><p class="lead">Разделяй слова на слоги и находи ударение.</p>
+  <div class="banner"><strong>Главное правило</strong>Сколько в слове гласных звуков, столько и слогов. Гласные буквы: А, О, У, Ы, Э, Я, Ё, Ю, И, Е.</div>
+  <div class="grid2"><div class="concept"><b>МА-ШИ-НА</b><p>Три гласные — три слога.</p></div><div class="concept green"><b>СО-БА-КА</b><p>Три гласные — три слога.</p></div></div>
+  <div class="task"><h3>1. Сколько слогов в слове «радуга»?</h3><div class="choices" data-question="syllable"><button class="choice" data-value="1">1</button><button class="choice" data-value="2">2</button><button class="choice" data-value="3">3</button><button class="choice" data-value="4">4</button></div><div class="feedback" id="f-syllable"></div></div>
+  <div class="task"><h3>2. Раздели слова на слоги</h3><div class="wordbank"><span class="word">МОЛОКО</span><span class="word">КОРОВА</span><span class="word">СОБАКА</span><span class="word">КОМПЬЮТЕР</span><span class="word">РАДУГА</span></div><button class="reveal" data-reveal="syllable-model">Проверить себя</button><div class="answer" id="syllable-model">МО-ЛО-КО · КО-РО-ВА · СО-БА-КА · КОМ-ПЬЮ-ТЕР · РА-ДУ-ГА.<br><b>Дополнительно:</b> назови ударный слог в каждом слове.</div></div>
+  <div class="task"><h3>3. Словесная эстафета</h3><p>Придумай слово из одного слога, затем из двух, из трёх и самое длинное слово, какое сможешь вспомнить. Хлопай в ладоши на каждый слог.</p></div>
+  <div class="actions"><button class="secondary prev" data-prev="1">← Назад</button><button class="primary next" data-next="3">К математике →</button></div>
+</section>
+<section class="section" id="s3">
+  <div class="kicker">Станция 04 · 15 минут</div><h2>Математическая экспедиция</h2><p class="lead">Решай примеры, задачу и найди закономерность.</p>
+  <div class="task"><h3>1. Математическая разминка</h3><div class="mathgrid"><div class="mathitem">12 + 5 = ?</div><div class="mathitem">18 − 6 = ?</div><div class="mathitem">7 + 8 = ?</div><div class="mathitem">20 − 9 = ?</div></div><p class="small">Реши устно или запиши ответы на бумаге. Попроси объяснить, как считал.</p></div>
+  <div class="task"><h3>2. Задача про деревья</h3><p>В лесу росло 8 берёз и 6 сосен. Сколько всего деревьев росло в лесу?</p><div class="choices" data-question="math"><button class="choice" data-value="12">12 деревьев</button><button class="choice" data-value="14">14 деревьев</button><button class="choice" data-value="16">16 деревьев</button></div><div class="feedback" id="f-math"></div></div>
+  <div class="task"><h3>3. Задача на логику</h3><p>У белки было 15 орехов. 4 ореха она съела, а 3 спрятала в дупло. Сколько орехов осталось у неё несъеденными и не спрятанными?</p><button class="reveal" data-reveal="math-model">Показать решение</button><div class="answer" id="math-model">15 − 4 − 3 = 8.<br><b>Ответ: 8 орехов.</b></div></div>
+  <div class="task"><h3>4. Найди закономерность</h3><div class="mathitem">2, 4, 6, 8, __, __</div><p>На сколько увеличивается каждое следующее число?</p><button class="reveal" data-reveal="pattern-model">Проверить</button><div class="answer" id="pattern-model">Каждый раз прибавляем 2. Продолжение: <b>10, 12.</b></div></div>
+  <div class="actions"><button class="secondary prev" data-prev="2">← Назад</button><button class="primary next" data-next="4">К природе →</button></div>
+</section>
+<section class="section" id="s4">
+  <div class="kicker">Станция 05 · 10–15 минут</div><h2>Секреты природных явлений</h2><p class="lead">Прочитай научно-познавательный текст и проверь, что запомнил.</p>
+  <article class="story"><h3>Что происходит в природе?</h3>
+  <p>Природа постоянно меняется. Иногда светит солнце, идёт дождь, дует ветер или падает снег. Всё это называется <b>природными явлениями</b>.</p>
+  <p><b>Дождь</b> появляется, когда водяной пар в атмосфере превращается в капли воды. Капли становятся тяжёлыми и падают на землю.</p>
+  <p><b>Радуга</b> возникает, когда солнечный свет проходит через капельки воды и разлагается на разные цвета. Поэтому после дождя иногда можно увидеть разноцветную дугу в небе.</p>
+  <p><b>Ветер</b> — это движение воздуха. Он может быть лёгким и тёплым, а может быть сильным и холодным.</p>
+  <p><b>Снег</b> образуется в облаках при низкой температуре. Он состоит из ледяных кристаллов — снежинок.</p>
+  <p><b>Гроза</b> — атмосферное явление, при котором можно наблюдать молнию и слышать гром. Молния — яркая электрическая вспышка, а гром — звук, возникающий из-за быстрого нагревания воздуха.</p></article>
+  <div class="task"><h3>1. Что такое ветер?</h3><div class="choices" data-question="nature"><button class="choice" data-value="a">Движение воздуха</button><button class="choice" data-value="b">Падение снежинок</button><button class="choice" data-value="c">Солнечный свет</button></div><div class="feedback" id="f-nature"></div></div>
+  <div class="task"><h3>2. Закончи предложения устно</h3><ol><li>Радуга появляется, когда...</li><li>Во время грозы мы видим...</li><li>Снег состоит из...</li><li>Дождь падает из...</li></ol></div>
+  <div class="task"><h3>3. Угадай природное явление</h3><p>Я появляюсь после дождя, когда светит солнце. Я разноцветная и похожа на дугу. Кто я?</p><button class="reveal" data-reveal="riddle-model">Узнать ответ</button><div class="answer" id="riddle-model"><b>Радуга!</b></div></div>
+  <div class="task"><h3>4. Ты — ведущий прогноза погоды</h3><p>Расскажи, какая сегодня погода, используя не менее трёх предложений и слова: <b>облачно, ветер, осадки, температура.</b></p></div>
+  <div class="actions"><button class="secondary prev" data-prev="3">← Назад</button><button class="primary" id="finish">Завершить занятие</button></div>
+  <div class="finish" id="finishBox"><div class="stars">★★★★★</div><h3>Путешествие завершено!</h3><p>Ты прошёл все пять станций. Сегодня ты читал, изучал русский язык, решал задачи и узнавал новое о природе.</p><button class="secondary" id="restart">Пройти занятие заново</button></div>
+</section>
+</main>
+</div>
+<div class="footer">Учебный маршрут · Материал для индивидуального занятия</div>
+</div>
+<script>
+const sections=[...document.querySelectorAll('.section')], nav=[...document.querySelectorAll('.nav button')];
+let done=new Set();
+function go(n){sections.forEach((s,i)=>s.classList.toggle('active',i===n));nav.forEach((b,i)=>b.classList.toggle('active',i===n));window.scrollTo({top:0,behavior:'smooth'});}
+function complete(n){done.add(n);document.getElementById('progress').style.width=(done.size*20)+'%';document.getElementById('progressText').textContent=done.size+' из 5 разделов завершено';document.getElementById('stars').textContent='★'.repeat(done.size)+'☆'.repeat(5-done.size);}
+nav.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.go)));
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{complete(+b.dataset.next-1);go(+b.dataset.next)}));
+document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>go(+b.dataset.prev)));
+document.querySelectorAll('[data-reveal]').forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.reveal);el.classList.toggle('show');b.textContent=el.classList.contains('show')?'Скрыть ответ':'Показать ответ';}));
+const answers={reading:{v:'b',ok:'Верно! Ёжик отправился в лес искать завтрак.',no:'Подумай, что ёжик собирался искать. Подсказка есть во втором абзаце.'},noun:{v:'a',ok:'Правильно! Бабочка — живое существо, отвечает на вопрос «кто?».',no:'Подсказка: бабочка — живое существо. Задай вопрос «кто?».'},syllable:{v:'3',ok:'Верно! Ра-ду-га — три слога.',no:'Посчитай гласные: а, у, а. Сколько получилось?'},math:{v:'14',ok:'Верно! 8 + 6 = 14 деревьев.',no:'Попробуй сложить 8 и 6.'},nature:{v:'a',ok:'Правильно! Ветер — это движение воздуха.',no:'Подсказка: ветер можно почувствовать кожей.'}};
+document.querySelectorAll('[data-question]').forEach(group=>group.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{const key=group.dataset.question,a=answers[key],fb=document.getElementById('f-'+key);group.querySelectorAll('.choice').forEach(x=>{x.classList.remove('selected','correct','wrong')});btn.classList.add('selected');if(btn.dataset.value===a.v){btn.classList.add('correct');fb.textContent=a.ok;fb.className='feedback good';}else{btn.classList.add('wrong');fb.textContent=a.no;fb.className='feedback bad';}})));
+document.getElementById('finish').addEventListener('click',()=>{complete(4);document.getElementById('finishBox').classList.add('show');document.getElementById('finish').disabled=true;});
+document.getElementById('restart').addEventListener('click',()=>{done.clear();document.querySelectorAll('.feedback').forEach(x=>{x.textContent='';x.className='feedback'});document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected','correct','wrong'));document.querySelectorAll('.answer').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.reveal').forEach(x=>x.textContent=x.dataset.reveal==='read-model'?'Показать пример ответа':x.dataset.reveal==='noun-model'?'Показать правильную классификацию':x.dataset.reveal==='syllable-model'?'Проверить себя':'Показать решение');document.getElementById('finishBox').classList.remove('show');document.getElementById('finish').disabled=false;document.getElementById('progress').style.width='0';document.getElementById('progressText').textContent='0 из 5 разделов завершено';document.getElementById('stars').textContent='☆☆☆☆☆';go(0);});
+</script>
+</body></html>
